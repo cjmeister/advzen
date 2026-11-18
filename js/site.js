@@ -189,10 +189,26 @@ setupNav();
 setupLightbox();
 setupForms();
 if (!document.querySelector(".ig-head")) {
+  const videos = new Set([1, 4, 5, 6, 7, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 22, 23, 24, 25, 26, 27, 28, 29, 30]);
+  const posts = [];
+  for (let i = 1; i <= 30; i += 1) {
+    const n = String(i).padStart(2, "0");
+    const video = videos.has(i);
+    posts.push(
+      `<a class="ig-post${video ? " ig-video" : ""}" href="${SOCIAL.instagram}" target="_blank" rel="noopener"><img src="images/ig/${n}.jpg" alt="ADV ZEN on Instagram">${video ? '<span class="ig-play" aria-hidden="true"></span>' : ""}</a>`
+    );
+  }
   document.getElementById("site-footer").insertAdjacentHTML(
     "beforebegin",
-    `<div class="ig-head">Follow us on Instagram <a href="${SOCIAL.instagram}" target="_blank" rel="noopener">@advzencom</a></div>`
+    `<section class="ig" aria-label="Instagram"><h2 class="ig-head">Follow us on Instagram <a href="${SOCIAL.instagram}" target="_blank" rel="noopener">@advzencom</a></h2><div class="ig-scroller"><div class="ig-grid">${posts.join("")}</div><button class="ig-next" type="button" aria-label="Next posts">›</button></div></section>`
   );
+}
+const igGrid = document.querySelector(".ig-grid");
+const igNext = document.querySelector(".ig-next");
+if (igGrid && igNext) {
+  igNext.addEventListener("click", () => {
+    igGrid.scrollBy({ left: igGrid.clientWidth * 0.8, behavior: "smooth" });
+  });
 }
 if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   document.querySelectorAll("video").forEach((video) => {
