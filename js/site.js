@@ -8,15 +8,15 @@ const NAV = [
     href: "experiences.html",
     label: "Our Experiences",
     children: [
-      ["Adventure Bike Tours", "experiences.html#adventure"],
-      ["Enduro Bike Tours", "experiences.html#enduro"],
-      ["E-MTB Tours", "experiences.html#emtb"],
-      ["Paddle Boarding", "experiences.html#paddle"],
-      ["Hiking", "experiences.html#hiking"],
-      ["Beach Days", "experiences.html#beach"],
-      ["Yoga", "experiences.html#yoga"],
-      ["Tennis", "experiences.html#tennis"],
-      ["Massage and Body Recovery", "experiences.html#massage"],
+      ["Adventure Bike Tours", "adventure.html"],
+      ["Enduro Bike Tours", "enduro.html"],
+      ["E-MTB Tours", "emtb.html"],
+      ["Paddle Boarding", "paddle.html"],
+      ["Hiking", "hiking.html"],
+      ["Beach Days", "beach.html"],
+      ["Yoga", "yoga.html"],
+      ["Tennis", "tennis.html"],
+      ["Massage and Body Recovery", "massage.html"],
     ],
   },
   { id: "bookings", href: "bookings.html", label: "Bookings" },
@@ -141,22 +141,22 @@ function setupNav() {
 }
 
 function setupLightbox() {
-  const gallery = document.querySelector(".gallery");
-  if (!gallery) return;
+  const galleries = document.querySelectorAll(".gallery");
+  if (!galleries.length) return;
   const box = document.createElement("div");
   box.className = "lightbox";
   box.innerHTML = '<button type="button" aria-label="Close">&times;</button><img alt="">';
   document.body.appendChild(box);
   const img = box.querySelector("img");
   const close = () => box.classList.remove("show");
-  gallery.addEventListener("click", (event) => {
+  galleries.forEach((gallery) => gallery.addEventListener("click", (event) => {
     const link = event.target.closest("a");
     if (!link) return;
     event.preventDefault();
     img.src = link.href;
     img.alt = link.querySelector("img")?.alt || "";
     box.classList.add("show");
-  });
+  }));
   box.addEventListener("click", (event) => {
     if (event.target === box || event.target.closest("button")) close();
   });
@@ -188,3 +188,15 @@ document.getElementById("site-footer").innerHTML = renderFooter();
 setupNav();
 setupLightbox();
 setupForms();
+if (!document.querySelector(".ig-head")) {
+  document.getElementById("site-footer").insertAdjacentHTML(
+    "beforebegin",
+    `<div class="ig-head">Follow us on Instagram <a href="${SOCIAL.instagram}" target="_blank" rel="noopener">@advzencom</a></div>`
+  );
+}
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  document.querySelectorAll("video").forEach((video) => {
+    video.removeAttribute("autoplay");
+    video.pause();
+  });
+}
