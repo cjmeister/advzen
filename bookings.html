@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Your Adventure | ADV ZEN</title>
+  <meta name="description" content="Book a stay or an experience at ADV ZEN. Call, WhatsApp, or email hello@advzen.com.">
+  <link rel="icon" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="bookings">
+  <a class="skip" href="#main">Skip to main content</a>
+  <header class="site-header" id="site-header"></header>
+  <main id="main">
+    <img class="page-hero" src="images/hero-bookings.jpg" alt="Book a stay or ride at ADV ZEN">
+    <p class="crumbs"><a href="index.html">Home</a><span>/</span>Bookings</p>
+    <article class="prose">
+      <h1>Bookings</h1>
+      <p><strong>The easiest way to book is to call or email us.</strong></p>
+      <p><a href="mailto:hello@advzen.com">hello@advzen.com</a><br><a href="tel:+351926214888">+351 926 214 888</a></p>
+      <p>Tell us when you’d like to come, how many people, and whether you’re after a stay, a ride, or both. We’ll come back with what’s possible.</p>
+    </article>
+    <section class="cards">
+      <a class="card" href="accommodation.html"><img src="images/hero-stay.jpg" alt=""><div><h3>Accommodation</h3><p>Stay where the trails, beaches, and calm all meet — a place to ride, rest, and recharge.</p></div></a>
+      <a class="card" href="experiences.html#adventure"><img src="images/tile-experiences.jpg" alt=""><div><h3>Adventure Bike Tours</h3><p>Ride big, ride far — from mountain trails to coastal roads, with endurance, freedom, and a touch of Zen.</p></div></a>
+      <a class="card" href="experiences.html#enduro"><img src="images/winding-road.jpg" alt=""><div><h3>Enduro Bike Tours</h3><p>Small bikes, big smiles — tight trails, rocky climbs, and pure focus. Short, intense, and seriously fun.</p></div></a>
+      <a class="card" href="experiences.html#tennis"><img src="images/tile-property.jpg" alt=""><div><h3>Tennis Court</h3><p>A private court among orange trees and open skies, with a ball machine for solo practice or a friendly match.</p></div></a>
+      <a class="card" href="experiences.html#emtb"><img src="images/hero-gallery.jpg" alt=""><div><h3>E-MTB Tours</h3><p>We drop you at the trail, you ride at your own pace, and we pick you up when you’re done.</p></div></a>
+      <a class="card" href="experiences.html#paddle"><img src="images/sup.jpg" alt=""><div><h3>Paddle Boarding</h3><p>Tranquil reservoirs or the open ocean — peaceful, scenic, and in tune with the ADV ZEN way of life.</p></div></a>
+    </section>
+    <div class="prose"><h2>Send a booking note</h2></div>
+    <form class="enquiry">
+      <label>Name<input name="Name" required autocomplete="name"></label>
+      <label>Email<input name="Email" type="email" required autocomplete="email"></label>
+      <label>Phone<input name="Phone" type="tel" autocomplete="tel"></label>
+      <label>Interest
+        <select name="Interest">
+          <option>Accommodation</option>
+          <option>Adventure bike tour</option>
+          <option>Enduro bike tour</option>
+          <option>E-MTB</option>
+          <option>Paddleboarding</option>
+          <option>Hiking</option>
+          <option>Beach day</option>
+          <option>Yoga</option>
+          <option>Tennis</option>
+          <option>Massage</option>
+          <option>Something else</option>
+        </select>
+      </label>
+      <label>Dates and notes<textarea name="Message" required></textarea></label>
+      <button class="btn btn-orange" type="submit">Email this enquiry</button>
+    </form>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="js/site.js"></script>
+</body>
+</html>
